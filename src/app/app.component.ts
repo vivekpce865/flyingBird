@@ -19,12 +19,34 @@ constructor(){
       $('#basicExampleNav').removeClass('show');
   }
   onElementScroll($event){
-      $('.nav li').removeClass('active');
-    
 
+      if (document.documentElement.scrollTop > 20) {
+        $('.nav li').removeClass('active');
+        $('.nav li:first a').removeClass('active')
+        document.getElementById("toTop").style.display = "block";
+    }else if(document.documentElement.scrollTop === 0){
+      $('.nav li:first a').addClass('active');
+      document.getElementById("toTop").style.display = "none";
+    }
+  
   }
-  // ngOnInit(){
-  //   $('.scrollspy-example').scrollspy({ target: '#basicExampleNav' })
-  // }
+  onWindowScroll(){
+    if (document.documentElement.scrollTop > 20) {
+      $('.nav li').removeClass('active');
+      document.getElementById("toTop").style.display = "block";
+  }else{
+    $('.nav li:first a').addClass('active');
+    document.getElementById("toTop").style.display = "none";
+  }
+  }
+  bottomToTop(){
+      $('.nav li:first a').addClass('active')
+      document.documentElement.scrollTop = 10;
+  
+  }
+  ngOnInit(){
+    document.body.scrollTop = 0;
+    document.getElementById("toTop").style.display = "none";
+  }
 }
 

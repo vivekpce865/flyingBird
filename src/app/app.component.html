@@ -1,5 +1,5 @@
 
-  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark main-header">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark main-header " (window:scroll)="onWindowScroll($event)">
 
   <!-- Navbar brand -->
   <!-- <a class="navbar-brand" href="#">FlyingBird</a> -->
@@ -291,4 +291,4 @@
         </footer>
       </section>
 
-      <a id="toTop" href="#"><div class="to-top"></div></a>
+      <a id="toTop" (click)="bottomToTop()"><div class="to-top"></div></a>
