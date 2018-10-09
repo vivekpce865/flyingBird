@@ -45,6 +45,14 @@ constructor(){
   
   }
   ngOnInit(){
+    $(document).ready(function () {
+      $('#basicExampleNav').hammer().on('swipeleft', function () {
+          $(this).carousel('next');
+      })
+      $('#basicExampleNav').hammer().on('swiperight', function () {
+          $(this).carousel('prev');
+      })
+  });
     document.body.scrollTop = 0;
     document.getElementById("toTop").style.display = "none";
   }
